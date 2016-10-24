@@ -202,7 +202,7 @@
 # visitPlace(departure)
 #
 #
-# while 1:
+# while True:
 #
 #     minDist = max(routing.values(), key=lambda x: x['shortestDist'])['shortestDist']
 #     toVisit = ''
@@ -223,73 +223,77 @@
 # print("Route : ", routing[destination]['route'])
 # print("ShortestDistance : ", routing[destination]['shortestDist'])
 
-def baseball(x, y):
-    global  strike
-    global  ball
-    if (x - d) * (x - e) * (x - f) == 0:
-        if (x - y) == 0:
-            strike += 1
-        else:
-            ball += 1
-import random
-a=random.randint(0,9)
 
-while True:
-    b=random.randint(0,9)
-    if a==b:
-        continue
-    else:
-        break
-while True:
-    c=random.randint(0,9)
-    if a==c or b==c:
-        continue
-    else:
-        break
-answer = [a,b,c]
-print(answer)
-count = 0
-sum_strike = 0
-sum_ball = 0
-while True:
-    strike = 0
-    ball = 0
 
-    count += 1
-    j = 0
+
+# 여기부터 숫자야구 integer로만
+# def baseball(x, y):
+#     global  strike
+#     global  ball
+#     if (x - d) * (x - e) * (x - f) == 0:
+#         if (x - y) == 0:
+#             strike += 1
+#         else:
+#             ball += 1
+# import random
+# a=random.randint(0,9)
+
+# while True:
+#     b=random.randint(0,9)
+#     if a==b:
+#         continue
+#     else:
+#         break
+# while True:
+#     c=random.randint(0,9)
+#     if a==c or b==c:
+#         continue
+#     else:
+#         break
+# answer = [a,b,c]
+# print(answer)
+# count = 0
+# sum_strike = 0
+# sum_ball = 0
+# while True:
+#     strike = 0
+#     ball = 0
+#
+#     count += 1
+#     j = 0
     # attack= []
     # hund = int(input("Enter 백의자리 : "))
     # ten = int(input("Enter 십의자리 : "))
     # one = int(input("Enter 일의자리 : "))
     # guess = [hund,ten,one]
-    try:
-        guess = int(input("맞춰보세요! :"))
-    except:
-        print("숫자만 입력하세요")
-        continue
+    # try:
+    #     guess = int(input("맞춰보세요! :"))
+    # except:
+    #     print("숫자만 입력하세요")
+    #     continue
 
-    if guess > 999 or guess < 100:
-        print("세자리 숫자로 입력하세요")
-        continue
+    # if guess > 999 or guess < 100:
+    #     print("세자리 숫자로 입력하세요")
+    #     continue
 
-    d = (guess//100)
-    e = ((guess//10)%10)
-    f = (guess%10)
-    if d==e or e==f or d==f:
-        print('같은 숫자는쓰면 안됩니다.')
-        continue
+    # d = (guess//100)
+    # e = ((guess//10)%10)
+    # f = (guess%10)
+    # if d==e or e==f or d==f:
+    #     print('같은 숫자는쓰면 안됩니다.')
+    #     continue
     # attack = [d,e,f]
     # print(attack)
 
 
-    baseball(a,d)
-    baseball(b,e)
-    baseball(c,f)
+    # baseball(a,d)
+    # baseball(b,e)
+    # baseball(c,f)
 
     # for i in range(0, 3):
     #     if attack[i]== answer[i]:
     #         strike+=1
-    print('strike is:',strike)
+    # print('strike is:',strike)
     #
     # for i in range(0,3):
     #     for j in range(0,3):
@@ -297,14 +301,16 @@ while True:
     #             ball+=1
     # realball = ball - strike
 
-    print('ball is:', ball)
-    sum_strike += strike
-    sum_ball += ball
-    if strike !=3:
-        continue
-    else:
-        break
+    # print('ball is:', ball)
+    # sum_strike += strike
+    # sum_ball += ball
+    # if strike !=3:
+    #     continue
+    # else:
+    #     break
 
-print('You are Correct by {0:.2f} times'.format(count))
-print('average of strike is {0:.2f}'.format(sum_strike/count))
-print('average of ball is {0:.2f}'.format(sum_ball/count))
+# print('You are Correct by {0:.2f} times'.format(count))
+# print('average of strike is {0:.2f}'.format(sum_strike/count))
+# print('average of ball is {0:.2f}'.format(sum_ball/count))
+
+
