@@ -165,60 +165,146 @@
 # print(min_time)
 # 최단경로 알고리즘
 # reference : http://navercast.naver.com/contents.nhn?rid=2871&contents_id=85293
-import copy
+# import copy
+#
+#
+# departure = 'home'
+# destination = 'school'
+# print("-----------[", departure, "->", destination, "]----------")
+#
+# landscape = {
+#     'home': {'hairShop': 5, 'superMarket': 10, 'EnglishAcademy': 9},
+#     'hairShop': {'home': 5, 'superMarket': 3, 'bank': 11},
+#     'superMarket': {'hairShop': 3, 'home': 10, 'EnglishAcademy': 7, 'restourant': 3},
+#     'EnglishAcademy': {'home': 9, 'superMarket': 7, 'school': 12},
+#     'restourant': {'superMarket': 3, 'bank': 4},
+#     'bank': {'hairShop': 11, 'restourant': 4, 'EnglishAcademy': 7, 'school': 2},
+#     'school': {'bank': 2, 'EnglishAcademy': 12}
+# }
+#
+# routing = {}
+# for place in landscape.keys():
+#     routing[place] = {'shortestDist': 0, 'route': [], 'visited': 0}
+#
+#
+#
+#
+# def visitPlace(visit):
+#     routing[visit]['visited'] = 1
+#     for toGo, betweenDist in landscape[visit].items():
+#         toDist = routing[visit]['shortestDist'] + betweenDist
+#         if (routing[toGo]['shortestDist'] >= toDist) or not routing[toGo]['route']:
+#             routing[toGo]['shortestDist'] = toDist
+#             routing[toGo]['route'] = copy.deepcopy(routing[visit]['route'])
+#             routing[toGo]['route'].append(visit)
+#
+#
+# visitPlace(departure)
+#
+#
+# while 1:
+#
+#     minDist = max(routing.values(), key=lambda x: x['shortestDist'])['shortestDist']
+#     toVisit = ''
+#     for name, search in routing.items():
+#         if 0 < search['shortestDist'] <= minDist and not search['visited']:
+#             minDist = search['shortestDist']
+#             toVisit = name
+#
+#     if toVisit == '':
+#         break
+#
+#     visitPlace(toVisit)
+#
+#     print("[" + toVisit + "]")
+#     print("Dist :", minDist)
+#
+# print("\n", "[", departure, "->", destination, "]")
+# print("Route : ", routing[destination]['route'])
+# print("ShortestDistance : ", routing[destination]['shortestDist'])
+
+def baseball(x, y):
+    global  strike
+    global  ball
+    if (x - d) * (x - e) * (x - f) == 0:
+        if (x - y) == 0:
+            strike += 1
+        else:
+            ball += 1
+import random
+a=random.randint(0,9)
+
+while True:
+    b=random.randint(0,9)
+    if a==b:
+        continue
+    else:
+        break
+while True:
+    c=random.randint(0,9)
+    if a==c or b==c:
+        continue
+    else:
+        break
+answer = [a,b,c]
+print(answer)
+count = 0
+sum_strike = 0
+sum_ball = 0
+while True:
+    strike = 0
+    ball = 0
+
+    count += 1
+    j = 0
+    # attack= []
+    # hund = int(input("Enter 백의자리 : "))
+    # ten = int(input("Enter 십의자리 : "))
+    # one = int(input("Enter 일의자리 : "))
+    # guess = [hund,ten,one]
+    try:
+        guess = int(input("맞춰보세요! :"))
+    except:
+        print("숫자만 입력하세요")
+        continue
+
+    if guess > 999 or guess < 100:
+        print("세자리 숫자로 입력하세요")
+        continue
+
+    d = (guess//100)
+    e = ((guess//10)%10)
+    f = (guess%10)
+    if d==e or e==f or d==f:
+        print('같은 숫자는쓰면 안됩니다.')
+        continue
+    # attack = [d,e,f]
+    # print(attack)
 
 
-departure = 'home'
-destination = 'school'
-print("-----------[", departure, "->", destination, "]----------")
+    baseball(a,d)
+    baseball(b,e)
+    baseball(c,f)
 
-landscape = {
-    'home': {'hairShop': 5, 'superMarket': 10, 'EnglishAcademy': 9},
-    'hairShop': {'home': 5, 'superMarket': 3, 'bank': 11},
-    'superMarket': {'hairShop': 3, 'home': 10, 'EnglishAcademy': 7, 'restourant': 3},
-    'EnglishAcademy': {'home': 9, 'superMarket': 7, 'school': 12},
-    'restourant': {'superMarket': 3, 'bank': 4},
-    'bank': {'hairShop': 11, 'restourant': 4, 'EnglishAcademy': 7, 'school': 2},
-    'school': {'bank': 2, 'EnglishAcademy': 12}
-}
+    # for i in range(0, 3):
+    #     if attack[i]== answer[i]:
+    #         strike+=1
+    print('strike is:',strike)
+    #
+    # for i in range(0,3):
+    #     for j in range(0,3):
+    #         if attack[i]==answer[j]:
+    #             ball+=1
+    # realball = ball - strike
 
-routing = {}
-for place in landscape.keys():
-    routing[place] = {'shortestDist': 0, 'route': [], 'visited': 0}
-
-
-
-
-def visitPlace(visit):
-    routing[visit]['visited'] = 1
-    for toGo, betweenDist in landscape[visit].items():
-        toDist = routing[visit]['shortestDist'] + betweenDist
-        if (routing[toGo]['shortestDist'] >= toDist) or not routing[toGo]['route']:
-            routing[toGo]['shortestDist'] = toDist
-            routing[toGo]['route'] = copy.deepcopy(routing[visit]['route'])
-            routing[toGo]['route'].append(visit)
-
-
-visitPlace(departure)
-
-
-while 1:
-
-    minDist = max(routing.values(), key=lambda x: x['shortestDist'])['shortestDist']
-    toVisit = ''
-    for name, search in routing.items():
-        if 0 < search['shortestDist'] <= minDist and not search['visited']:
-            minDist = search['shortestDist']
-            toVisit = name
-
-    if toVisit == '':
+    print('ball is:', ball)
+    sum_strike += strike
+    sum_ball += ball
+    if strike !=3:
+        continue
+    else:
         break
 
-    visitPlace(toVisit)
-
-    print("[" + toVisit + "]")
-    print("Dist :", minDist)
-
-print("\n", "[", departure, "->", destination, "]")
-print("Route : ", routing[destination]['route'])
-print("ShortestDistance : ", routing[destination]['shortestDist'])
+print('You are Correct by {0:.2f} times'.format(count))
+print('average of strike is {0:.2f}'.format(sum_strike/count))
+print('average of ball is {0:.2f}'.format(sum_ball/count))
