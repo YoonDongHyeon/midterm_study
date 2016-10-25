@@ -16,7 +16,7 @@ while True:
             if not j in starting_point:
                 Y.append([tree[i][j], i, j])
     print("후보군:", Y)
-    for i in range(len(Y) - 1):
+    for i in range(len(Y) - 1): 
         for j in range(i, len(Y)):
             if Y[i][0] > Y[j][0]:
                 t = Y[i]
