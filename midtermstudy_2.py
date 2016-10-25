@@ -16,7 +16,7 @@ while True:
             if not j in starting_point:
                 Y.append([tree[i][j], i, j])
     print("후보군:", Y)
-    for i in range(len(Y) - 1): 
+    for i in range(len(Y) - 1):
         for j in range(i, len(Y)):
             if Y[i][0] > Y[j][0]:
                 t = Y[i]
@@ -25,7 +25,7 @@ while True:
     ans.append(['{} 부터 {} 까지 거리는 {}'.format(Y[0][1],Y[0][2],Y[0][0])])
     starting_point.append(Y[0][2])
     Y=[]
-    print("갱신값",ans)
+    print("완성된 경로들",ans)
     print("완료점",starting_point)
     print("-"*50)
     if len(starting_point)==len(tree):
