@@ -1,4 +1,4 @@
-import copy
+
 
 
 departure = '공원입구'
@@ -28,7 +28,7 @@ def visitPlace(visit):
         toDist = routing[visit]['shortestDist'] + betweenDist
         if (routing[toGo]['shortestDist'] >= toDist) or not routing[toGo]['route']:
             routing[toGo]['shortestDist'] = toDist
-            routing[toGo]['route'] = copy.deepcopy(routing[visit]['route'])
+
             routing[toGo]['route'].append(visit)
 #② 집과 직접 길로 이어진 건물들까지의 최단 거리는 지도에 표시된 값으로 적고 그렇지 않은 건물들은 빈 칸으로 놓아둔다. 여기서 빈 칸의 값은 무한대를 뜻한다.
 
