@@ -312,56 +312,55 @@
 # print('You are Correct by {0:.2f} times'.format(count))
 # print('average of strike is {0:.2f}'.format(sum_strike/count))
 # print('average of ball is {0:.2f}'.format(sum_ball/count))
-tree = {
-    'O': {'A': 2, 'C': 4, 'B': 5},
-    'A': {'O': 2, 'B': 2, 'D': 7},
-    'B': {'O': 5, 'A': 2, 'C': 1, 'D':4, 'E':3},
-    'C': {'O': 4, 'B': 1, 'E': 4},
-    'D': {'B': 4, 'E': 1, 'T':5},
-    'E': {'B': 3, 'D': 1, 'T': 7},
-    'T': {'D': 5, 'E': 7}
-}
-
-X = []
-for i in tree:
-    for j in tree[i]:
-        X.append([tree[i][j],i,j])
+# tree = {
+#     'O': {'A': 2, 'C': 4, 'B': 5},
+#     'A': {'O': 2, 'B': 2, 'D': 7},
+#     'B': {'O': 5, 'A': 2, 'C': 1, 'D':4, 'E':3},
+#     'C': {'O': 4, 'B': 1, 'E': 4},
+#     'D': {'B': 4, 'E': 1, 'T':5},
+#     'E': {'B': 3, 'D': 1, 'T': 7},
+#     'T': {'D': 5, 'E': 7}
+# }
+#
+# X = []
+# for i in tree:
+#     for j in tree[i]:
+#         X.append([tree[i][j],i,j])
 #         X에 tree 성분을 순서대로 가져와서 입력
-for i in range(0,len(X)-1):
-    # 0부터 X갯수-2 해야 마지막 직전까지 비교 기준 값 설정 가능
-    for j in range(i+1,len(X)):
-        #
-        if X[i][0]> X[j][0]:
-            t=X[i]
-            X[i]=X[j]
-            X[j]=t
-#             각 X[]에 대해서 버블정렬 시행, 작은거부터 큰 순서대로 작성 tree 전체에 대한 버블정렬시작
+# for i in range(0,len(X)-1):
+#     0부터 X갯수-2 해야 마지막 직전까지 비교 기준 값 설정 가능
+    # for j in range(i+1,len(X)):
+
+        # if X[i][0]> X[j][0]:
+        #     t=X[i]
+        #     X[i]=X[j]
+        #     X[j]=t
+        #     각 X[]에 대해서 버블정렬 시행, 작은거부터 큰 순서대로 작성 tree 전체에 대한 버블정렬시작
 # 거리가 1인 거리가 제일 짧은 것이 앞에 오게 된다.
 # X[0] = [거리, 출발지, 도착지]
-starting_point=[X[0][1],X[0][2]]
-print('스타팅은',starting_point)
-#스타팅 포인트 결정 이거 x[0][1]이랑 x[0][2] 설정하고 후보군과 어떤 처리과정이 이루어지는지 이해안감.
-Y=[]
-ans=[X[0]]
-# print(ans)
-while True:
- for i in starting_point:
-    for j in tree[i].keys():
-        if not j in starting_point:
-            Y.append([tree[i][j],i,j])
- print("후보군:",Y)
- for i in range(len(Y)-1):
-    for j in range(i,len(Y)):
-        if Y[i][0]>Y[j][0]:
-            t=Y[i]
-            Y[i]=Y[j]
-            Y[j]=t
- #             후보군을 버블정렬로 작은거부터 큰 거 정렬
- ans.append(Y[0])
- starting_point.append(Y[0][2])
- Y=[]
- print("갱신값",ans)
- print("완료점",starting_point)
- print("-"*50)
- if len(starting_point)==7:
-     break
+# starting_point=[X[0][1],X[0][2]]
+# print('스타팅은',starting_point)
+# 스타팅 포인트 결정 이거 x[0][1]이랑 x[0][2] 설정하고 후보군과 어떤 처리과정이 이루어지는지 이해안감.
+# Y=[]
+# ans=[X[0]]
+# while True:
+#  for i in starting_point:
+#     for j in tree[i].keys():
+#         if not j in starting_point:
+#             Y.append([tree[i][j],i,j])
+#  print("후보군:",Y)
+#  for i in range(len(Y)-1):
+#     for j in range(i,len(Y)):
+#         if Y[i][0]>Y[j][0]:
+#             t=Y[i]
+#             Y[i]=Y[j]
+#             Y[j]=t
+#              후보군을 버블정렬로 작은거부터 큰 거 정렬
+ # ans.append(Y[0])
+ # starting_point.append(Y[0][2])
+ # Y=[]
+ # print("갱신값",ans)
+ # print("완료점",starting_point)
+ # print("-"*50)
+ # if len(starting_point)==7:
+ #     break
