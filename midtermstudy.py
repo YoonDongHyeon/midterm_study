@@ -329,7 +329,7 @@ for i in tree:
 #         X에 tree 성분을 순서대로 가져와서 입력
 for i in range(0,len(X)-1):
     # 0부터 X갯수-2 해야 마지막 직전까지 비교 기준 값 설정 가능
-    for j in range(i,len(X)):
+    for j in range(i+1,len(X)):
         #
         if X[i][0]> X[j][0]:
             t=X[i]
