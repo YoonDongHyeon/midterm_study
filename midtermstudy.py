@@ -312,6 +312,9 @@
 # print('You are Correct by {0:.2f} times'.format(count))
 # print('average of strike is {0:.2f}'.format(sum_strike/count))
 # print('average of ball is {0:.2f}'.format(sum_ball/count))
+
+
+
 # tree = {
 #     'O': {'A': 2, 'C': 4, 'B': 5},
 #     'A': {'O': 2, 'B': 2, 'D': 7},
